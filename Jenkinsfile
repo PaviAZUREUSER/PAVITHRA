@@ -1,5 +1,25 @@
-node{
-   stage('SCM Checkout'){
-     git 'https://github.com/manojsb24/my-app.git'
-   }
-  }
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'echo "create application..."'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'echo " testing application..."'
+            }
+        }
+        stage('Deploy nodejs application') {
+            steps {
+                echo "Deploying application"
+            }
+        }
+    }
+} 
